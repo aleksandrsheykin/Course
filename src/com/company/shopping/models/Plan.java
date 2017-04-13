@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by admin on 13.04.2017.
  */
-public class Plans {
+public class Plan {
     private int id_plan;
     private Date date_plan;
     private int quantity;

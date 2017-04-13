@@ -8,6 +8,7 @@ public class User {
     private String fistname;
     private String lastname;
     private String mail;
+    private String password;
     private int limit;
     private static long serialVersionUID = 1L;
 
