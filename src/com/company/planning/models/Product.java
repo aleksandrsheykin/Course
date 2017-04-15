@@ -1,4 +1,4 @@
-package com.company.shopping.models;
+package com.company.planning.models;
 
 /**
  * Created by admin on 13.04.2017.

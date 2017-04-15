@@ -1,4 +1,4 @@
-package com.company.shopping.models;
+package com.company.planning.models;
 
 import java.util.Date;
 
