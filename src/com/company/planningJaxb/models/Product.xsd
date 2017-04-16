@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Products">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="products" type="Product" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:complexType name="Product">
+    <xs:sequence>
+        <xs:element name="id_product" type="xs:int"/>
+        <xs:element name="name">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:length value="255"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+        <xs:element name="description">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:length value="255"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+        <xs:element name="id_user" type="xs:int"/>
+    </xs:sequence>
+</xs:complexType>
+</xs:schema>
+

@@ -168,7 +168,7 @@ public class User implements DataBaseManager {
     }
 
     @Override
-    public void get(int id) {
+    public void load(int id) {
         Connection connection = initConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select"+
@@ -190,6 +190,5 @@ public class User implements DataBaseManager {
             logger.warn("SQLException on get User. User.java get()");
         }
     }
-
 
 }

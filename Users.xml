@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Users>
+    <users>
+        <id_user>2</id_user>
+        <firstName>Ray</firstName>
+        <lastName>Charles</lastName>
+        <mail>Ray@mali.ru</mail>
+        <password>1234</password>
+        <limit>1500</limit>
+        <is_admin>false</is_admin>
+    </users>
+    <users>
+        <id_user>1</id_user>
+        <firstName>Mick</firstName>
+        <lastName>Jagger</lastName>
+        <mail>Mick@mail.ru</mail>
+        <password>asdf</password>
+        <limit>777</limit>
+        <is_admin>false</is_admin>
+    </users>
+    <users>
+        <id_user>3</id_user>
+        <firstName>Uriy</firstName>
+        <lastName>Shevchuk</lastName>
+        <mail>Shevchuk@mail.ru</mail>
+        <password>3213</password>
+        <limit>1000</limit>
+        <is_admin>false</is_admin>
+    </users>
+</Users>

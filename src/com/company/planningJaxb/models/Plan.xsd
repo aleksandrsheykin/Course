@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Plans">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="plans" type="Plan" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Plan">
+        <xs:sequence>
+            <xs:element name="id_plan" type="xs:int"/>
+            <xs:element name="id_user" type="xs:int"/>
+            <xs:element name="id_product" type="xs:int"/>
+            <xs:element name="date_plan" type="xs:date"/>
+            <xs:element name="quantity" type="xs:int"/>
+            <xs:element name="cost" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -11,7 +11,7 @@ public interface DataBaseManager {
 
     public int save();
     public boolean update();
-    public void get(int id);
+    public void load(int id);
 
     default Connection initConnection() {
         Connection connection = null;

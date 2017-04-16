@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Products>
+    <products>
+        <id_product>1</id_product>
+        <name>Chees</name>
+        <description>Сырники с колбаской</description>
+        <id_user>1</id_user>
+    </products>
+    <products>
+        <id_product>2</id_product>
+        <name>Ferrari</name>
+        <description>Ferrari 201</description>
+        <id_user>1</id_user>
+    </products>
+    <products>
+        <id_product>3</id_product>
+        <name>Guitar</name>
+        <id_user>1</id_user>
+    </products>
+    <products>
+        <id_product>4</id_product>
+        <name>Piano</name>
+        <description>fortepiano</description>
+        <id_user>2</id_user>
+    </products>
+    <products>
+        <id_product>5</id_product>
+        <name>glass</name>
+        <description>black glass</description>
+        <id_user>2</id_user>
+    </products>
+    <products>
+        <id_product>6</id_product>
+        <name>homeland</name>
+        <description>rodina</description>
+        <id_user>3</id_user>
+    </products>
+</Products>

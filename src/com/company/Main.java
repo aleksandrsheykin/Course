@@ -1,10 +1,21 @@
 package com.company;
 
-import com.company.planning.models.User;
+//import com.company.planning.models.User;
+import com.company.planningJaxb.JaxbManagar.JaxbManager;
+import com.company.planningJaxb.dataBaseManager.DataBaseManager;
+import com.company.planningJaxb.models.Products;
+import com.company.planningJaxb.models.User;
+import com.company.planningJaxb.models.Users;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.crypto.Data;
+import java.io.File;
 import java.sql.*;
+import java.util.List;
 
 public class Main {
 
@@ -12,18 +23,16 @@ public class Main {
         PropertyConfigurator.configure("log4j.properties");
     }
 
-    private static Logger logger = Logger.getLogger(Main.class);
+    public static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
 
-        //User user = new User("Uriy", "Shevchuk", "Shevchuk@mail.ru", "12345", 1000);
-        User user = new User();
-        user.get(3);
-        System.out.println(user.toString());
-        //user.setFirstName("Mick");
-        //user.update();
+        //JaxbManager.toXml(DataBaseManager.getUsers());
+        //JaxbManager.toXml(DataBaseManager.getProducts());
+        //JaxbManager.toXml(DataBaseManager.getPlans());
 
-        System.out.println(user.toString());
+        //DataBaseManager.saveUsers((Users) JaxbManager.fromXml(new Users(), Users.class));
+        //DataBaseManager.saveProducts((Products) JaxbManager.fromXml(new Products(), Products.class));
 
 
     }
