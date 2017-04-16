@@ -1,4 +1,4 @@
-package com.company.planningJaxb.jaxbManagar;
+package com.company.planningJaxb.jaxbManager;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

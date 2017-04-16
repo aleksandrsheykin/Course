@@ -1,7 +1,7 @@
 package com.company.planningJaxb.jaxbThread;
 
 import com.company.planningJaxb.dataBaseManager.DataBaseManager;
-import com.company.planningJaxb.jaxbManagar.JaxbManager;
+import com.company.planningJaxb.jaxbManager.JaxbManager;
 import com.company.planningJaxb.models.Plans;
 import com.company.planningJaxb.models.Products;
 import com.company.planningJaxb.models.Users;

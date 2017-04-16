@@ -1,6 +1,6 @@
 package com.company.planningJaxb.jaxbThread;
 
-import com.company.planningJaxb.jaxbManagar.JaxbManager;
+import com.company.planningJaxb.jaxbManager.JaxbManager;
 
 /**
  * Created by admin on 16.04.2017.

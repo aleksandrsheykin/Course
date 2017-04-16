@@ -19,6 +19,7 @@ public class Utils {
      * @return
      */
     public static XMLGregorianCalendar dateToXMLGregorianCalendar(Date date){
+        if (date == null) return null;
         GregorianCalendar gCalendar = new GregorianCalendar();
         gCalendar.setTime(date);
         XMLGregorianCalendar xmlCalendar = null;
