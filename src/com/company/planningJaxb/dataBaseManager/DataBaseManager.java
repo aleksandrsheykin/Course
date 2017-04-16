@@ -1,10 +1,12 @@
 package com.company.planningJaxb.dataBaseManager;
 
 import com.company.Main;
+import com.company.planningJaxb.Utils.Utils;
 import com.company.planningJaxb.models.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import javax.rmi.CORBA.Util;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -112,11 +114,12 @@ public class DataBaseManager {
                 p.setIdUser(result.getInt("plan_user_id"));
                 p.setIdProduct(result.getInt("plan_product_id"));
                 p.setCost(result.getInt("plan_cost"));
-                GregorianCalendar c = new GregorianCalendar();
+                /*GregorianCalendar c = new GregorianCalendar();
                 c.set(result.getDate("plan_data").getYear(),
                         result.getDate("plan_data").getMonth(),
                         result.getDate("plan_data").getDate());
-                p.setDatePlan(DatatypeFactory.newInstance().newXMLGregorianCalendar(c));
+                p.setDatePlan(DatatypeFactory.newInstance().newXMLGregorianCalendar(c));*/
+                p.setDatePlan(Utils.dateToXMLGregorianCalendar(result.getDate("plan_data")));
                 p.setQuantity(result.getInt("plan_quantity"));
                 plans.getPlans().add(p);
             }
@@ -124,9 +127,6 @@ public class DataBaseManager {
 
         } catch (SQLException e) {
             logger.warn("SQLException on get DataBaseManager. DataBaseManager.java getPlans()");
-            return new Plans();
-        } catch (DatatypeConfigurationException e) {
-            logger.warn("DatatypeConfigurationException on get DataBaseManager. DataBaseManager.java getPlans()");
             return new Plans();
         }
     }
@@ -191,6 +191,34 @@ public class DataBaseManager {
                 preparedStatement.setString(2, product.getName());
                 preparedStatement.setString(3, product.getDescription());
                 preparedStatement.setInt(4, product.getIdUser());
+                preparedStatement.addBatch();
+                if (i++ % 500 == 0) {
+                    preparedStatement.executeBatch();
+                }
+            }
+            preparedStatement.executeBatch();
+
+        } catch (SQLException e) {
+            logger.warn("SQLException on save User. DataBaseManager.java saveProducts()");
+        }
+    }
+
+    public static void savePlans(Plans plans) {
+        Connection connection = initConnection();
+        try {
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("INSERT INTO plans(" +
+                            " plan_id, plan_user_id, plan_product_id, plan_cost, plan_quantity, plan_data)" +
+                            " VALUES (?, ?, ?, ?, ?, ?)");
+            int i = 0;
+            for (Plan plan: plans.getPlans()) {
+                preparedStatement.setInt(1, plan.getIdPlan());
+                preparedStatement.setInt(2, plan.getIdUser());
+                preparedStatement.setInt(3, plan.getIdPlan());
+                preparedStatement.setInt(4, plan.getCost());
+                preparedStatement.setInt(5, plan.getQuantity());
+                preparedStatement.setDate(6, (Date) Utils.xMLGregorianCalendarToDate(plan.getDatePlan()));
+
                 preparedStatement.addBatch();
                 if (i++ % 500 == 0) {
                     preparedStatement.executeBatch();

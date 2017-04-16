@@ -3,6 +3,7 @@ package com.company;
 //import com.company.planning.models.User;
 import com.company.planningJaxb.JaxbManagar.JaxbManager;
 import com.company.planningJaxb.dataBaseManager.DataBaseManager;
+import com.company.planningJaxb.models.Plans;
 import com.company.planningJaxb.models.Products;
 import com.company.planningJaxb.models.User;
 import com.company.planningJaxb.models.Users;
@@ -33,6 +34,7 @@ public class Main {
 
         //DataBaseManager.saveUsers((Users) JaxbManager.fromXml(new Users(), Users.class));
         //DataBaseManager.saveProducts((Products) JaxbManager.fromXml(new Products(), Products.class));
+        DataBaseManager.savePlans((Plans) JaxbManager.fromXml(new Plans(), Plans.class));
 
 
     }
