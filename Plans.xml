@@ -4,7 +4,7 @@
         <id_plan>1</id_plan>
         <id_user>1</id_user>
         <id_product>1</id_product>
-        <date_plan>2017-04-29+03:00</date_plan>
+        <date_plan>2017-04-16+03:00</date_plan>
         <quantity>2</quantity>
         <cost>250</cost>
     </plans>
@@ -12,7 +12,7 @@
         <id_plan>2</id_plan>
         <id_user>3</id_user>
         <id_product>6</id_product>
-        <date_plan>2017-04-28+03:00</date_plan>
+        <date_plan>2017-04-26+03:00</date_plan>
         <quantity>1</quantity>
         <cost>777</cost>
     </plans>
@@ -20,7 +20,7 @@
         <id_plan>3</id_plan>
         <id_user>1</id_user>
         <id_product>3</id_product>
-        <date_plan>2017-05-24+03:00</date_plan>
+        <date_plan>2017-05-09+03:00</date_plan>
         <quantity>1</quantity>
         <cost>1000</cost>
     </plans>
@@ -28,7 +28,7 @@
         <id_plan>4</id_plan>
         <id_user>1</id_user>
         <id_product>2</id_product>
-        <date_plan>2017-04-30+03:00</date_plan>
+        <date_plan>2017-05-01+03:00</date_plan>
         <quantity>3</quantity>
         <cost>10700</cost>
     </plans>

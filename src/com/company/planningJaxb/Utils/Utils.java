@@ -13,6 +13,11 @@ import static com.company.Main.logger;
  */
 public class Utils {
 
+    /**
+     * Конвертирует Data() в XMLGregorianCalendar()
+     * @param date
+     * @return
+     */
     public static XMLGregorianCalendar dateToXMLGregorianCalendar(Date date){
         GregorianCalendar gCalendar = new GregorianCalendar();
         gCalendar.setTime(date);
@@ -25,14 +30,20 @@ public class Utils {
         return xmlCalendar;
     }
 
-    /*
-     * Converts XMLGregorianCalendar to java.util.Date in Java
+    /**
+     * Конвертирует XMLGregorianCalendar() в Data()
+     * @param calendar
+     * @return
      */
-    public static Date xMLGregorianCalendarToDate(XMLGregorianCalendar calendar){
-        if(calendar == null) {
+     public static Date xMLGregorianCalendarToDate(XMLGregorianCalendar calendar){
+        /*if(calendar == null) {
             return null;
         }
-        return calendar.toGregorianCalendar().getTime();
+        return calendar.toGregorianCalendar().getTime();*/
+
+        java.util.Date date = calendar.toGregorianCalendar().getTime();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        return sqlDate;
     }
 
 }

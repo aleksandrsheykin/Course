@@ -1,15 +1,10 @@
-package com.company.planningJaxb.JaxbManagar;
-
-import com.company.planningJaxb.models.User;
-import com.company.planningJaxb.models.Users;
+package com.company.planningJaxb.jaxbManagar;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.company.Main.logger;
 
@@ -18,6 +13,10 @@ import static com.company.Main.logger;
  */
 public class JaxbManager {
 
+    /**
+     * <p>Сохраняет Object в *.xml имя файлу присваивает соответствующее имени класса </p>
+     * @param obj
+     */
     public static void toXml(Object obj) {
         try {
 
@@ -34,6 +33,12 @@ public class JaxbManager {
         }
     }
 
+    /**
+     * <p>Вытягивает из *.xml объекты, имя файла берет из имени объектов лежащих в файла </p>
+     * @param obj - объекты которые ищем в файле
+     * @param cls - класс объекта
+     * @return объект нужного класса (Users, Products, Plans)
+     */
     public static Object fromXml(Object obj, Class cls) {
         try {
 
