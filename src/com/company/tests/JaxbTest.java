@@ -36,6 +36,6 @@ public class JaxbTest {
         usersStandart.getUsers().add(userStandart);
 
         //JaxbManager.toXml(usersStandart);
-        assertTrue(true);
+        assertTrue(false);
     }
 }
