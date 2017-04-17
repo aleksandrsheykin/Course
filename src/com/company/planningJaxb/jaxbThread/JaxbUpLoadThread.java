@@ -23,11 +23,6 @@ public class JaxbUpLoadThread  extends Thread {
     public void run() {
         switch (obj.getClass().getSimpleName()) {
             case "Users":
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 DataBaseManager.saveUsers((Users) JaxbManager.fromXml(new Users(), Users.class));
                 break;
             case "Products":

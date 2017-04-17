@@ -3,7 +3,7 @@ package com.company.planningJaxb.Utils;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import java.util.Date;
+import java.sql.Date;
 import java.util.GregorianCalendar;
 
 import static com.company.Main.logger;
@@ -37,14 +37,8 @@ public class Utils {
      * @return
      */
      public static Date xMLGregorianCalendarToDate(XMLGregorianCalendar calendar){
-        /*if(calendar == null) {
-            return null;
-        }
-        return calendar.toGregorianCalendar().getTime();*/
-
-        java.util.Date date = calendar.toGregorianCalendar().getTime();
-        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-        return sqlDate;
+         long time = calendar.toGregorianCalendar().getTime().getTime();
+         return new Date(time);
     }
 
 }

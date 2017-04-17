@@ -237,8 +237,8 @@ public class DataBaseManager {
         try {
             PreparedStatement preparedStatement =
                     connection.prepareStatement("INSERT INTO plans(" +
-                            " plan_id, plan_user_id, plan_product_id, plan_cost, plan_quantity)" /*, plan_data*/+
-                            " VALUES (?, ?, ?, ?, ?)");
+                            " plan_id, plan_user_id, plan_product_id, plan_cost, plan_quantity, plan_data)" /*, plan_data*/+
+                            " VALUES (?, ?, ?, ?, ?, ?)");
             int i = 0;
             for (Plan plan: plans.getPlans()) {
                 preparedStatement.setInt(1, plan.getIdPlan());
@@ -246,7 +246,7 @@ public class DataBaseManager {
                 preparedStatement.setInt(3, plan.getIdProduct());
                 preparedStatement.setInt(4, plan.getCost());
                 preparedStatement.setInt(5, plan.getQuantity());
-                //preparedStatement.setDate(6, Utils.xMLGregorianCalendarToDate(plan.getDatePlan()));
+                preparedStatement.setDate(6, Utils.xMLGregorianCalendarToDate(plan.getDatePlan()));
 
                 preparedStatement.addBatch();
                 if (++i % 500 == 0) {

@@ -17,23 +17,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*Thread downLoadUsersThread = new JaxbDownLoadThread(DataBaseManager.getUsers());
-        downLoadUsersThread.start();
-        Thread downLoadProductsThread = new JaxbDownLoadThread(DataBaseManager.getProducts());
-        downLoadProductsThread.start();
-        Thread downLoadPlansThread = new JaxbDownLoadThread(DataBaseManager.getPlans());
-        downLoadPlansThread.start();*/
+        if (false) {
+            Thread downLoadUsersThread = new JaxbDownLoadThread(DataBaseManager.getUsers());
+            downLoadUsersThread.start();
+            Thread downLoadProductsThread = new JaxbDownLoadThread(DataBaseManager.getProducts());
+            downLoadProductsThread.start();
+            Thread downLoadPlansThread = new JaxbDownLoadThread(DataBaseManager.getPlans());
+            downLoadPlansThread.start();
+        } else {
+            //DataBaseManager.saveUsers((Users) JaxbManager.fromXml(new Users(), Users.class));
+            //DataBaseManager.saveProducts((Products) JaxbManager.fromXml(new Products(), Products.class));
+            //DataBaseManager.savePlans((Plans) JaxbManager.fromXml(new Plans(), Plans.class));
 
-        //DataBaseManager.saveUsers((Users) JaxbManager.fromXml(new Users(), Users.class));
-        //DataBaseManager.saveProducts((Products) JaxbManager.fromXml(new Products(), Products.class));
-        //DataBaseManager.savePlans((Plans) JaxbManager.fromXml(new Plans(), Plans.class));
-
-        Thread upUsersThread = new JaxbUpLoadThread(DataBaseManager.getUsers());
-        upUsersThread.start();
-        Thread upProductThread = new JaxbUpLoadThread(DataBaseManager.getProducts());
-        upProductThread.start();
-        Thread upPlansThread = new JaxbUpLoadThread(DataBaseManager.getPlans());
-        upPlansThread.start();
-
+            Thread upUsersThread = new JaxbUpLoadThread(DataBaseManager.getUsers());
+            upUsersThread.start();
+            Thread upProductThread = new JaxbUpLoadThread(DataBaseManager.getProducts());
+            upProductThread.start();
+            Thread upPlansThread = new JaxbUpLoadThread(DataBaseManager.getPlans());
+            upPlansThread.start();
+        }
     }
 }
