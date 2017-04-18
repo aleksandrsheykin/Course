@@ -1,6 +1,5 @@
 package com.company;
 
-//import com.company.planning.models.User;
 import com.company.planningJaxb.jaxbManager.JaxbManager;
 import com.company.planningJaxb.jaxbThread.JaxbDownLoadThread;
 import com.company.planningJaxb.dataBaseManager.DataBaseManager;

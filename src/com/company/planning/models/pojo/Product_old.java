@@ -1,15 +1,12 @@
-package com.company.planning.models;
+/*package com.company.planning.models.pojo;
 
-/**
- * Created by admin on 13.04.2017.
- */
-public class Product {
+public class Product_old {
     private Integer id_product;
     private String name;
     private String description;
     private static long serialVersionUID = 1L;
 
-    public Product(String name, String description) {
+    public Product_old(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -19,10 +16,10 @@ public class Product {
         if (obj == null)
             return false;
 
-        if (!(obj instanceof User))
+        if (!(obj instanceof User_old))
             return false;
 
-        if (!this.id_product.equals(((Product) obj).id_product))
+        if (!this.id_product.equals(((Product_old) obj).id_product))
             return false;
 
         return true;
@@ -35,15 +32,15 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Product_old{" +
                 "id_product=" + id_product +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
 
-    public Product getProduct(Integer id_product) {
-        return new Product("asdf", "asdf");
+    public Product_old getProduct(Integer id_product) {
+        return new Product_old("asdf", "asdf");
     }
 
     public String getName() {
@@ -66,3 +63,4 @@ public class Product {
         return id_product;
     }
 }
+*/

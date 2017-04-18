@@ -1,20 +1,16 @@
-package com.company.planning.models;
+/*package com.company.planning.models.pojo;
 
 import com.company.Main;
-import com.company.planning.dataBaseManager.DataBaseManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-
+import com.company.planning.models.connection.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 
-/**
- * Created by admin on 13.04.2017.
- */
-public class User implements DataBaseManager {
+public class User_old extends DataBaseManager {
     private Integer id_user;
     private String firstName;
     private String lastName;
@@ -29,14 +25,14 @@ public class User implements DataBaseManager {
 
     private static Logger logger = Logger.getLogger(Main.class);
 
-    public User(String fistName, String lastName, String mail, String password, int limit) {
+    public User_old(String fistName, String lastName, String mail, String password, int limit) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             this.password = md.digest(password.getBytes("UTF-8")).toString();
         } catch (NoSuchAlgorithmException e) {
-            logger.warn("NoSuchAlgorithmException User.java User()"+e.toString());
+            logger.warn("NoSuchAlgorithmException User_old.java User_old()"+e.toString());
         } catch (UnsupportedEncodingException e) {
-            logger.warn("UnsupportedEncodingException User.java User()"+e.toString());
+            logger.warn("UnsupportedEncodingException User_old.java User_old()"+e.toString());
         }
         this.firstName = fistName;
         this.lastName = lastName;
@@ -45,7 +41,7 @@ public class User implements DataBaseManager {
         this.id_user = save();
     }
 
-    public User() {
+    public User_old() {
     }
 
     @Override
@@ -53,10 +49,10 @@ public class User implements DataBaseManager {
         if (obj == null)
             return false;
 
-        if (!(obj instanceof User))
+        if (!(obj instanceof User_old))
             return false;
 
-        if (!this.id_user.equals(((User) obj).id_user))
+        if (!this.id_user.equals(((User_old) obj).id_user))
             return false;
 
         return true;
@@ -69,7 +65,7 @@ public class User implements DataBaseManager {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User_old{" +
                 "id_user=" + id_user +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -79,12 +75,12 @@ public class User implements DataBaseManager {
                 '}';
     }
 
-    public User getUser(String mail) {
-        return new User("Ray", "Charles", "Ray@mail.ru", "asdfasdf", 10000);
+    public User_old getUser(String mail) {
+        return new User_old("Ray", "Charles", "Ray@mail.ru", "asdfasdf", 10000);
     }
 
-    public User getUser(int id) {
-        return new User("Ray", "Charles", "Ray@mail.ru", "asdfasdf", 10000);
+    public User_old getUser(int id) {
+        return new User_old("Ray", "Charles", "Ray@mail.ru", "asdfasdf", 10000);
     }
 
     public int getId_user() {
@@ -123,7 +119,6 @@ public class User implements DataBaseManager {
         this.limit = limit;
     }
 
-    @Override
     public int save() {
         Connection connection = initConnection();
         try {
@@ -140,12 +135,11 @@ public class User implements DataBaseManager {
             result.next();
             return result.getInt(1);
         } catch (SQLException e) {
-            logger.warn("SQLException on save User. User.java save()");
+            logger.warn("SQLException on save User_old. User_old.java save()");
             return -1;
         }
     }
 
-    @Override
     public boolean update() {
         Connection connection = initConnection();
         try {
@@ -162,7 +156,7 @@ public class User implements DataBaseManager {
             preparedStatement.executeQuery();
             return true;
         } catch (SQLException e) {
-            logger.warn("SQLException on update User. User.java update()");
+            logger.warn("SQLException on update User_old. User_old.java update()");
             return false;
         }
     }
@@ -187,8 +181,9 @@ public class User implements DataBaseManager {
             this.password = result.getString("user_password");
 
         } catch (SQLException e) {
-            logger.warn("SQLException on get User. User.java get()");
+            logger.warn("SQLException on get User_old. User_old.java get()");
         }
     }
 
 }
+*/

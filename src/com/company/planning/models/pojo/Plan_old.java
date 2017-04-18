@@ -1,20 +1,18 @@
-package com.company.planning.models;
+/*package com.company.planning.models.pojo;
 
 import java.util.Date;
 
-/**
- * Created by admin on 13.04.2017.
- */
-public class Plan {
+
+public class Plan_old {
     private Integer id_plan;
     private Date datePlan;
     private int quantity;
     private int cost;
-    private User user;
-    private Product product;
+    private User_old user;
+    private Product_old product;
     private static long serialVersionUID = 1L;
 
-    public Plan(Date datePlan, int quantity, int cost, User user, Product product) {
+    public Plan_old(Date datePlan, int quantity, int cost, User_old user, Product_old product) {
         this.datePlan = datePlan;
         this.quantity = quantity;
         this.cost = cost;
@@ -27,10 +25,10 @@ public class Plan {
         if (obj == null)
             return false;
 
-        if (!(obj instanceof Plan))
+        if (!(obj instanceof Plan_old))
             return false;
 
-        if (!this.id_plan.equals(((Plan) obj).id_plan))
+        if (!this.id_plan.equals(((Plan_old) obj).id_plan))
             return false;
 
         return true;
@@ -43,7 +41,7 @@ public class Plan {
 
     @Override
     public String toString() {
-        return "Plan{" +
+        return "Plan_old{" +
                 "id_plan=" + id_plan +
                 ", datePlan=" + datePlan +
                 ", quantity=" + quantity +
@@ -77,19 +75,20 @@ public class Plan {
         this.cost = cost;
     }
 
-    public User getUser() {
+    public User_old getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(User_old user) {
         this.user = user;
     }
 
-    public Product getProduct() {
+    public Product_old getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(Product_old product) {
         this.product = product;
     }
 }
+*/

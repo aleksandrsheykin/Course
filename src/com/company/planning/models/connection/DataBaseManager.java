@@ -1,4 +1,4 @@
-package com.company.planning.dataBaseManager;
+package com.company.planning.models.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,13 +7,9 @@ import java.sql.SQLException;
 /**
  * Created by admin on 15.04.2017.
  */
-public interface DataBaseManager {
+public class DataBaseManager {
 
-    public int save();
-    public boolean update();
-    public void load(int id);
-
-    default Connection initConnection() {
+    public static Connection initConnection() {
         Connection connection = null;
         try {
             Class.forName("org.postgresql.Driver");
