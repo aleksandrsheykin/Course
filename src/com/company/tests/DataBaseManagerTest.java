@@ -38,7 +38,7 @@ public class DataBaseManagerTest {
         userStandart.setFirstName("Oleg");
         userStandart.setLastName("Gazmanov");
         userStandart.setLimit(2050);
-        userStandart.setIdUser(777);
+        userStandart.setIdUser(7777);
         usersStandart.getUsers().add(userStandart);
 
         assertTrue(DataBaseManager.getUsers().getUsers().contains(userStandart));
@@ -47,7 +47,7 @@ public class DataBaseManagerTest {
         Connection connection = initConnection();
         try {
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("delete from users where user_id = 777");
+                    connection.prepareStatement("delete from users where user_id = 7777");
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

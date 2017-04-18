@@ -11,12 +11,11 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 import static com.company.Main.logger;
+import static com.company.Main.positiveProductsQueue;
+import static com.company.Main.positiveUsersQueue;
 
 /**
  * Created by admin on 16.04.2017.
@@ -197,6 +196,31 @@ public class DataBaseManager {
         }
     }
 
+    public static void saveUsersThread(Users users) {
+        Connection connection = initConnection();
+        try {
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("INSERT INTO users(" +
+                            " user_firstname, user_lastname, user_mail, user_password, user_limit, user_id, user_is_admin)" +
+                            " VALUES (?, ?, ?, ?, ?, ?, ?)");
+            int i = 0;
+            for (User user: users.getUsers()) {
+                preparedStatement.setString(1, user.getFirstName());
+                preparedStatement.setString(2, user.getLastName());
+                preparedStatement.setString(3, user.getMail());
+                preparedStatement.setString(4, user.getPassword());
+                preparedStatement.setInt(5, user.getLimit());
+                preparedStatement.setInt(6, user.getIdUser());
+                preparedStatement.setBoolean(7, user.isIsAdmin());
+                preparedStatement.executeUpdate();
+
+                positiveUsersQueue.add(user);
+            }
+        } catch (SQLException e) {
+            logger.warn("SQLException on save User. DataBaseManager.java saveUser()");
+        }
+    }
+
     /**
      * <p>Записывает продукты в базу</p>
      * На вход принимает Products, содержащий List продуктов
@@ -226,6 +250,53 @@ public class DataBaseManager {
             logger.warn("SQLException on save Products. DataBaseManager.java saveProducts()");
         }
     }
+
+    /*public static void saveProductsThread(Products products) {
+        //HashMap<Integer, Product> productBuffer = new HashMap<>();
+        //ArrayList<Queue> productBuffer = new ArrayList<>();
+        Product[][] productBuffer = new Product[0][0];
+        int idu = 0;
+        int i = 0;
+        for (Product product: products.getProducts()) {
+            if (idu != product.getIdUser()) {
+                productBuffer[idu][0] = product;
+                i = 0;
+            } else {
+                productBuffer[idu][i] = product;
+                i++;
+            }
+            idu = product.getIdUser();
+        }
+
+        Connection connection = initConnection();
+        try {
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("INSERT INTO products(" +
+                            " product_id, product_name, product_description, product_user_id)" +
+                            " VALUES (?, ?, ?, ?)");
+            int i = 0;
+            int idPositiveUser = 0;
+            User positiveUser = null;
+            while (positiveUsersQueue.peek() != null){
+                idPositiveUser = positiveUsersQueue.poll().getIdUser();
+                productBuffer[idPositiveUser]
+
+                indexOfPositiveUser = products.getProducts().
+                Product product = products.getProducts().get(indexOfPositiveUser);
+
+                preparedStatement.setInt(1, product.getIdProduct());
+                preparedStatement.setString(2, product.getName());
+                preparedStatement.setString(3, product.getDescription());
+                preparedStatement.setInt(4, product.getIdUser());
+                preparedStatement.executeUpdate();
+
+                positiveProductsQueue.add(product.getIdProduct());
+
+            }
+        } catch (SQLException e) {
+            logger.warn("SQLException on save Products. DataBaseManager.java saveProducts()");
+        }
+    }*/
 
     /**
      * <p>Записывает планы в базу</p>
